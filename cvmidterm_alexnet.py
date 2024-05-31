@@ -6,37 +6,10 @@ import os
 from PIL import Image
 import matplotlib.pyplot as plt
 
-
-# torch.manual_seed(12345)
-
-# alexnet = models.alexnet(pretrained=True)
-# print(alexnet)
-
-# from torch.hub import set_dir
-
-# set_dir('D://Python//Python310')
-# print(torch.hub.get_dir())
-#
-# alexnet = torch.hub.load('pytorch/vision', 'alexnet', pretrained=True)
-# print(alexnet)
-
-# alexnet = torch.load('D://Python//Python310//checkpoints//alexnet-owt-7be5be79.pth')
-# print(alexnet)
 alexnet = models.alexnet(pretrained=True)
 
 newLinear = torch.nn.Linear(in_features=alexnet.classifier[6].in_features, out_features=200, bias=True)
 alexnet.classifier[6] = newLinear
-
-# train_dataset = datasets.ImageFolder(root='CUB_200_2011', transform=train_transform)
-# test_dataset = datasets.ImageFolder(root='CUB_200_2011', transform=test_transform)
-#
-#
-# train_data = DataLoader(train_dataset, batch_size=32, shuffle=True)
-# test_data = DataLoader(test_dataset, batch_size=32, shuffle=True)
-
-# optimizer = torch.optim.SGD(alexnet.parameters(), lr=pow(10, -5))
-# loss_fn = torch.nn.CrossEntropyLoss()
-
 
 class CustomDataset(Dataset):
     def __init__(self, data_dir, split_file, class_file, image_class_file, images_file, train=True, transform=None):
