@@ -22,9 +22,7 @@ model = dict(
     )
 )
 
-# Modify the optimizer to change the learning rate
 optimizer = dict(type='SGD', lr=0.001, momentum=0.9, weight_decay=0.0001)
-
 
 data = dict(
     train=dict(
@@ -40,21 +38,3 @@ data = dict(
 )
 
 runner = dict(type='EpochBasedRunner', max_epochs=200)
-
-# data = dict(
-#     train=dict(
-#         type=dataset_type,
-#         ann_file=data_root + 'VOC2012/ImageSets/Main/trainval.txt',
-#         img_prefix=data_root + 'VOC2012/'
-#     ),
-#     val=dict(
-#         type=dataset_type,
-#         ann_file=data_root + 'VOC2012/ImageSets/Main/val.txt',
-#         img_prefix=data_root + 'VOC2012/'
-#     ),
-#     test=dict(
-#         type=dataset_type,
-#         ann_file=data_root + 'VOC2012/ImageSets/Main/test.txt',
-#         img_prefix=data_root + 'VOC2012/'
-#     )
-# )
